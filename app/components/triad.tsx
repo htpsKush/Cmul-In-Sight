@@ -14,9 +14,17 @@ const Triad = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {boxes.map((box) => (
-          <div key={box.title} className="p-10 bg-zinc-950 border border-zinc-900 rounded-xl hover:border-zinc-700 transition-all">
-            <h3 className="text-xl font-bold text-white mb-4">{box.title}</h3>
-            <p className="text-zinc-500 leading-relaxed font-normal">
+          <div 
+            key={box.title} 
+          
+            className="p-10 bg-zinc-900/40 border border-zinc-800 rounded-2xl hover:border-accent/50 hover:bg-zinc-900/80 transition-all duration-300 group shadow-2xl"
+          >
+         
+            <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">
+              {box.title}
+            </h3>
+         
+            <p className="text-zinc-400 leading-relaxed font-normal text-sm md:text-base">
               {box.desc}
             </p>
           </div>

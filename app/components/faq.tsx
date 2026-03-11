@@ -1,7 +1,16 @@
-import { Plus } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 const FAQ = () => {
-   const faqs = [
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const faqs = [
     {
       q: "How does CMUL-IN-SIGHT maintain independence?",
       a: "We are not influenced by political factions, administrative pressure, or personal interests. Our commitment is strictly to principles and verified documentation, not popularity."
@@ -24,7 +33,6 @@ const FAQ = () => {
     }
   ];
 
-
   return (
     <section id="faq" className="py-24 px-6 max-w-3xl mx-auto overflow-hidden">
       <div className="mb-12">
@@ -34,23 +42,46 @@ const FAQ = () => {
         </h2>
       </div>
 
-      <div className="border-t border-zinc-900">
-        {faqs.map((faq, index) => (
-          <div key={index} className="border-b border-zinc-900 py-5 group cursor-pointer transition-all">
-            <div className="flex justify-between items-center gap-6">
-              {/* Reduced font size and weight for better hierarchy */}
-              <h3 className="text-base md:text-lg font-semibold text-zinc-300 group-hover:text-accent transition-colors">
-                {faq.q}
-              </h3>
-              <Plus className="w-4 h-4 text-zinc-600 group-hover:text-accent transition-all shrink-0" />
+      <div className="border-t border-zinc-800">
+        {faqs.map((faq, index) => {
+          const isOpen = openIndex === index;
+          
+          return (
+            <div 
+              key={index} 
+              className="border-b border-zinc-800 py-5 cursor-pointer transition-all"
+              onClick={() => toggleFAQ(index)}
+            >
+              <div className="flex justify-between items-center gap-6">
+                {/* Visibility Fix: Question is now text-zinc-200, hover turns it to accent */}
+                <h3 className={`text-base md:text-lg font-semibold transition-colors duration-300 ${isOpen ? 'text-accent' : 'text-zinc-200 hover:text-accent'}`}>
+                  {faq.q}
+                </h3>
+                
+                {/* Icon swaps from Plus to Minus when open */}
+                <div className="shrink-0">
+                  {isOpen ? (
+                    <Minus className="w-4 h-4 text-accent transition-transform duration-300" />
+                  ) : (
+                    <Plus className="w-4 h-4 text-zinc-500 transition-transform duration-300" />
+                  )}
+                </div>
+              </div>
+
+              {/* Dynamic height based on state */}
+              <div 
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  isOpen ? "max-h-60 opacity-100 mt-4" : "max-h-0 opacity-0"
+                }`}
+              >
+                {/* Visibility Fix: Answer text brightened to zinc-400 */}
+                <p className="text-zinc-400 text-sm leading-relaxed pb-2">
+                  {faq.a}
+                </p>
+              </div>
             </div>
-            <div className="max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-500 ease-in-out">
-              <p className="mt-4 text-zinc-500 text-sm leading-relaxed">
-                {faq.a}
-              </p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

@@ -13,10 +13,14 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <section id="about">
       <Triad />
       <Clarity />
       <ValuesGrid />
+      </section>
+      <section id="work">
       <Work />
+      </section>
       <FAQ />
       <Footer />
     </>
