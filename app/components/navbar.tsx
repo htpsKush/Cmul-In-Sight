@@ -27,17 +27,17 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full bg-black py-2 px-6 border-b border-zinc-900 sticky top-0 z-[100] backdrop-blur-md bg-black/90">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <nav className="fixed top-0 left-0 w-full z-[100] transition-all duration-300 bg-transparent">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
         {/* Logo */}
-        <div className="shrink-0 py-1">
+        <div className="shrink-0">
           <Link href="/" onClick={closeMenu}>
             <Image 
-              src="/logo.png" 
+              src="/log.png" 
               alt="Logo" 
-              width={140} 
-              height={35} 
+              width={130} 
+              height={30} 
               priority 
               className="object-contain" 
             />
@@ -50,7 +50,7 @@ const Navbar = () => {
             <Link 
               key={link.name} 
               href={link.href} 
-              className="text-zinc-400 text-[11px] font-bold uppercase tracking-[0.2em] hover:text-accent transition-colors"
+              className="text-black text-[11px] font-black uppercase tracking-[0.2em] hover:text-accent transition-colors"
             >
               {link.name}
             </Link>
@@ -59,27 +59,26 @@ const Navbar = () => {
 
         {/* Mobile Toggle Button */}
         <button 
-          className="md:hidden text-white p-2 relative z-[120]" 
+          className="md:hidden text-black p-2 relative z-[120]" 
           onClick={toggleMenu}
         >
           {isOpen ? <X className="w-6 h-6 text-accent" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Small Dropdown */}
+      {/* Mobile Dropdown */}
       {isOpen && (
         <>
-          {/* Overlay to close when clicking outside */}
-          <div className="fixed inset-0 z-[110] md:hidden" onClick={closeMenu} />
+          <div className="fixed inset-0 z-[110] md:hidden bg-black/20 backdrop-blur-sm" onClick={closeMenu} />
           
-          <div className="absolute top-[60px] right-6 w-56 bg-zinc-900/95 border border-zinc-800 backdrop-blur-xl rounded-2xl shadow-2xl z-[115] overflow-hidden md:hidden animate-in fade-in zoom-in-95 duration-200 origin-top-right">
-            <div className="flex flex-col py-3">
+          <div className="absolute top-20 right-6 w-56 bg-white border border-black/5 rounded-2xl shadow-2xl z-[115] overflow-hidden md:hidden animate-in fade-in zoom-in-95 duration-200 origin-top-right">
+            <div className="flex flex-col py-2">
               {mobileLinks.map((link) => (
                 <Link 
                   key={link.name}
                   href={link.href}
                   onClick={closeMenu} 
-                  className="px-6 py-4 text-zinc-300 text-[10px] font-black uppercase tracking-[0.3em] hover:bg-zinc-800 hover:text-accent transition-all border-b border-zinc-800/50 last:border-0"
+                  className="px-6 py-4 text-black text-[10px] font-black uppercase tracking-[0.3em] hover:bg-zinc-50 hover:text-accent transition-all border-b border-zinc-50 last:border-0"
                 >
                   {link.name}
                 </Link>

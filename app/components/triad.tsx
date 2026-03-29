@@ -8,7 +8,8 @@ const Triad = () => {
   return (
     <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
       <div className="mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">What We Are</h2>
+    
+        <h2 className="text-3xl md:text-4xl font-bold text-black tracking-tight">What We Are</h2>
         <div className="h-1 w-12 bg-accent mt-4"></div>
       </div>
 
@@ -17,14 +18,16 @@ const Triad = () => {
           <div 
             key={box.title} 
           
-            className="p-10 bg-zinc-900/40 border border-zinc-800 rounded-2xl hover:border-accent/50 hover:bg-zinc-900/80 transition-all duration-300 group shadow-2xl"
+          
+            className="p-10 bg-zinc-50 border border-zinc-200 rounded-2xl hover:border-accent/50 hover:bg-white transition-all duration-300 group shadow-sm hover:shadow-xl"
           >
-         
-            <h3 className="text-xl font-bold text-white mb-4 group-hover:text-accent transition-colors">
+       
+            <h3 className="text-xl font-bold text-black mb-4 group-hover:text-accent transition-colors">
               {box.title}
             </h3>
          
-            <p className="text-zinc-400 leading-relaxed font-normal text-sm md:text-base">
+         
+            <p className="text-zinc-600 leading-relaxed font-normal text-sm md:text-base">
               {box.desc}
             </p>
           </div>

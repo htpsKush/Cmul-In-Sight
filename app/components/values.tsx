@@ -32,15 +32,14 @@ const ValuesGrid = () => {
         {values.map((v) => (
           <div 
             key={v.title} 
-            className={`${v.span} p-10 bg-zinc-900/40 border border-zinc-800 rounded-2xl hover:border-accent/50 hover:bg-zinc-900/80 transition-all duration-500 group shadow-lg`}
+            className={`${v.span} p-10 bg-zinc-50 border border-zinc-200 rounded-2xl hover:border-accent/50 hover:bg-white transition-all duration-500 group shadow-sm hover:shadow-xl`}
           >
-           
-            <h3 className="text-white text-xl font-bold mb-4 tracking-tight group-hover:text-accent transition-colors">
+            
+            <h3 className="text-black text-xl font-bold mb-4 tracking-tight group-hover:text-accent transition-colors">
               {v.title}
             </h3>
             
-            
-            <p className="text-zinc-400 text-sm md:text-base leading-relaxed font-normal">
+            <p className="text-zinc-600 text-sm md:text-base leading-relaxed font-normal">
               {v.desc}
             </p>
           </div>

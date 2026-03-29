@@ -34,48 +34,50 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-24 px-6 max-w-3xl mx-auto overflow-hidden">
+    <section id="faq" className="py-24 px-6 max-w-3xl mx-auto overflow-hidden bg-white">
       <div className="mb-12">
         <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">FAQ</span>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 tracking-tight">
+        {/* Changed text-white to text-black */}
+        <h2 className="text-3xl md:text-4xl font-bold text-black mt-4 tracking-tight">
           Still Got Questions?
         </h2>
       </div>
 
-      <div className="border-t border-zinc-800">
+      {/* Changed border-zinc-800 to border-zinc-200 */}
+      <div className="border-t border-zinc-200">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
           
           return (
             <div 
               key={index} 
-              className="border-b border-zinc-800 py-5 cursor-pointer transition-all"
+              /* Changed border-zinc-800 to border-zinc-200 */
+              className="border-b border-zinc-200 py-5 cursor-pointer transition-all"
               onClick={() => toggleFAQ(index)}
             >
               <div className="flex justify-between items-center gap-6">
-                {/* Visibility Fix: Question is now text-zinc-200, hover turns it to accent */}
-                <h3 className={`text-base md:text-lg font-semibold transition-colors duration-300 ${isOpen ? 'text-accent' : 'text-zinc-200 hover:text-accent'}`}>
+                {/* Changed text-zinc-200 to text-zinc-800 */}
+                <h3 className={`text-base md:text-lg font-semibold transition-colors duration-300 ${isOpen ? 'text-accent' : 'text-zinc-800 hover:text-accent'}`}>
                   {faq.q}
                 </h3>
                 
-                {/* Icon swaps from Plus to Minus when open */}
                 <div className="shrink-0">
                   {isOpen ? (
                     <Minus className="w-4 h-4 text-accent transition-transform duration-300" />
                   ) : (
-                    <Plus className="w-4 h-4 text-zinc-500 transition-transform duration-300" />
+                    /* Changed text-zinc-500 to text-zinc-400 */
+                    <Plus className="w-4 h-4 text-zinc-400 transition-transform duration-300" />
                   )}
                 </div>
               </div>
 
-              {/* Dynamic height based on state */}
               <div 
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${
                   isOpen ? "max-h-60 opacity-100 mt-4" : "max-h-0 opacity-0"
                 }`}
               >
-                {/* Visibility Fix: Answer text brightened to zinc-400 */}
-                <p className="text-zinc-400 text-sm leading-relaxed pb-2">
+                {/* Changed text-zinc-400 to text-zinc-600 */}
+                <p className="text-zinc-600 text-sm leading-relaxed pb-2">
                   {faq.a}
                 </p>
               </div>

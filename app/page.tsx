@@ -15,11 +15,11 @@ export default function Home() {
       <Hero />
       <section id="about">
       <Triad />
+        <section id="work">
+      <Work />
+      </section>
       <Clarity />
       <ValuesGrid />
-      </section>
-      <section id="work">
-      <Work />
       </section>
       <FAQ />
       <Footer />
